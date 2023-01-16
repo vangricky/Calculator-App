@@ -32,12 +32,12 @@ function handleSymbol(symbol) {
             if(buffer.length === 1) {
                 buffer = '0';
             } else {
-                buffer = buffer.toString(0, buffer.length - 1);
+                buffer = buffer.substring(0, buffer.length - 1);
             }
             break;
         case '+':
         case '-':
-        case 'x':
+        case '×':
         case '÷':
             handleMath(symbol)
             break;
@@ -65,7 +65,7 @@ function flushOperation(intBuffer) {
         runningTotal += intBuffer;
     } else if(previousOperator === '-') {
         runningTotal -= intBuffer;
-    } else if(previousOperator === 'x') {
+    } else if(previousOperator === '×') {
         runningTotal *= intBuffer;
     } else if(previousOperator === '÷') {
         runningTotal /= intBuffer;
@@ -86,3 +86,4 @@ function init() {
     })
 }
 
+init();
