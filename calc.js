@@ -59,3 +59,15 @@ function handleMath(symbol) {
     previousOperator = symbol;
     buffer = '0';
 }
+
+function flushOperation(intBuffer) {
+    if(previousOperator === '+') {
+        runningTotal += intBuffer;
+    } else if(previousOperator === '-') {
+        runningTotal -= intBuffer;
+    } else if(previousOperator === 'x') {
+        runningTotal *= intBuffer;
+    } else if(previousOperator === '÷') {
+        runningTotal /= intBuffer;
+    }
+}
